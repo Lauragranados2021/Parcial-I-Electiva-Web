@@ -1,4 +1,11 @@
 # Parcial-I-Electiva-Web
 Para correr el codigo porfavor coloque en la consola 
-npm install
-npm start
+```bash
+
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
+```
