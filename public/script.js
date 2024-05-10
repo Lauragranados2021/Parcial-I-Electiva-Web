@@ -29,4 +29,5 @@ document.getElementById("agregar").addEventListener('click', () => {
         else{
             alert("acabo el stock")
         }
+        
         });
