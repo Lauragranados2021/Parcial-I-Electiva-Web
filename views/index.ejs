@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('./templates/header.ejs')%>
+  <script>
+    function editing() {
+      var valueId = document.getElementById("idInv").value;
+      const nombre = document.getElementById("description");
+      const marca = document.getElementById("stock");
+      const cantidad = document.getElementById("value");
+      const costo = document.getElementById("stockMin");
+      
+      "<%for( const [key, value] of data){%>"
+      var aux = "<%= key %>";
+      if (aux == valueId) {
+        nombre.value = "<%= value.description %>";
+        marca.value = "<%= value.stock %>";
+        cantidad.value = "<%= value.value %>";
+        costo.value = "<%=value.sotckmin %>";
+      }
+      ("<%}%>");
+      return valueId;
+    }
+  </script>
+  <body>
+    <div class="container">
+        <form class="row g-3">
+          <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Id</label>
+              <select name="idINV" id="idInv" class="form-control" onchange="editing()">
+                  <option disabled selected style="display:none;">¡Seleccione el id a comprar!</option>
+                  <% for( const [key, value] of data){%>
+                    <option value=<%=key%>><%=key%>%>
+                    </option>
+                    <%}%>
+                </select>
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">description</label>
+            <input type="text" class="form-control" id="description" />
+            
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">stock</label>
+            <input
+              type="text"
+              class="form-control"
+              id="stock"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputAddress2" class="form-label">value</label>
+            <input
+              type="number"
+              class="form-control"
+              id="value"
+        
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">stock minimo</label>
+            <input type="number" class="form-control" id="stockMin" />
+          </div>
+          
+          <div class="col-12">
+            <button type="button" class="btn btn-success" id="edit">agregar</button>
+          </div>
+        </form>
+      </div>
+  </body>
+  <footer><%-include('./templates/footer.ejs')%></footer>
+</html>
