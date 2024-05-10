@@ -1,10 +1,11 @@
 const express = require("express");
+const { dirname } = require("path");
 const path = require("path");
 
 const app = express();
 
 //setters
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"public")));
 app.use(express.json());
 app.set("views", "./views");
 app.set("view engine", "ejs");
