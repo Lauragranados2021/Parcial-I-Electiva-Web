@@ -9,15 +9,15 @@
       const cantidad = document.getElementById("value");
       const costo = document.getElementById("stockMin");
       
-      "<%for( const [key, value] of data){%>"
-      var aux = "<%= key %>";
-      if (aux == valueId) {
-        nombre.value = "<%= value.description %>";
-        marca.value = "<%= value.stock %>";
-        cantidad.value = "<%= value.value %>";
-        costo.value = "<%=value.sotckmin %>";
-      }
-      ("<%}%>");
+      "<%data.forEach((value, key) => {%>"
+      key="<%=key%>"
+    if (key === valueId) {
+      nombre.value = "<%=value.description%>";
+      marca.value = "<%=value.stock%>";
+      cantidad.value = "<%=value.value%>";
+      costo.value = "<%=value.sotckmin%>";
+    }
+      "<%})%>"
       return valueId;
     }
   </script>
@@ -42,7 +42,7 @@
           <div class="col-12">
             <label for="inputAddress" class="form-label">stock</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
               id="stock"
             />
@@ -62,7 +62,7 @@
           </div>
           
           <div class="col-12">
-            <button type="button" class="btn btn-success" id="edit">agregar</button>
+            <button type="button" class="btn btn-success" id="agregar">agregar</button>
           </div>
         </form>
       </div>
